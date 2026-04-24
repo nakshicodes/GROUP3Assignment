@@ -1,9 +1,4 @@
-/* =============================================
-   PERSONAL DASHBOARD — style.css
-   Aesthetic: warm dark, editorial, minimal
-   ============================================= */
-
-/* ---------- CSS Variables ---------- */
+/*CSS variables used*/
 :root {
   --bg:        #0f0e0d;
   --surface:   #1a1917;
@@ -22,14 +17,14 @@
   --transition: 0.2s ease;
 }
 
-/* ---------- Reset ---------- */
+/*resetting the styling*/
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ---------- Base ---------- */
+/*Body base*/
 body {
   background: var(--bg);
   color: var(--text);
@@ -41,7 +36,7 @@ body {
   position: relative;
 }
 
-/* ---------- Background orbs ---------- */
+/*Background orbs*/
 .bg-orb {
   position: fixed;
   border-radius: 50%;
@@ -61,7 +56,7 @@ body {
   bottom: -80px; right: -80px;
 }
 
-/* ---------- Header ---------- */
+/*Header*/
 .header {
   position: relative;
   z-index: 1;
@@ -88,7 +83,7 @@ body {
   font-weight: 300;
 }
 
-/* ---------- Grid layout ---------- */
+/* Grid layout*/
 .grid {
   position: relative;
   z-index: 1;
@@ -99,7 +94,7 @@ body {
   margin: 0 auto;
 }
 
-/* ---------- Card base ---------- */
+/*Card base*/
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -112,7 +107,7 @@ body {
   border-color: var(--border2);
 }
 
-/* Staggered fade-in for each card */
+/*fade-in effect for each card */
 .card--clock  { animation-delay: 0.05s; }
 .card--weather{ animation-delay: 0.1s;  }
 .card--quote  { animation-delay: 0.15s; grid-column: span 2; }
@@ -123,7 +118,7 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- Card label (top tag) ---------- */
+/*Card label*/
 .card-label {
   font-size: 11px;
   font-weight: 500;
@@ -133,7 +128,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* ---------- CLOCK ---------- */
+/*CLOCK*/
 .clock {
   font-family: var(--font-head);
   font-size: 3.5rem;
@@ -150,7 +145,7 @@ body {
   letter-spacing: 0.1em;
 }
 
-/* ---------- WEATHER ---------- */
+/*WEATHER*/
 .weather-main {
   display: flex;
   align-items: center;
@@ -159,8 +154,9 @@ body {
 }
 
 .weather-icon {
-  font-size: 2.5rem;
+  font-size: 2.5rem !important; /*!important to override Material Icons default size*/
   line-height: 1;
+  color: var(--accent);        /*tint the icon with our accent colour*/
 }
 
 .weather-temp {
@@ -203,7 +199,7 @@ body {
   color: var(--text);
 }
 
-/* ---------- QUOTE ---------- */
+/*QUOTE*/
 .quote-text {
   font-family: var(--font-head);
   font-size: 1.3rem;
@@ -239,7 +235,7 @@ body {
   color: var(--accent);
 }
 
-/* ---------- TO-DO ---------- */
+/*TO-DO list*/
 .todo-input-row {
   display: flex;
   gap: 0.5rem;
@@ -276,7 +272,7 @@ body {
 .add-btn:hover  { opacity: 0.85; }
 .add-btn:active { transform: scale(0.97); }
 
-/* ---------- To-do list items ---------- */
+/*To-do list items*/
 .todo-list {
   list-style: none;
   display: flex;
@@ -306,7 +302,7 @@ body {
   color: var(--muted);
 }
 
-/* Custom checkbox */
+/*Customise checkbox*/
 .todo-check {
   appearance: none;
   -webkit-appearance: none;
@@ -354,7 +350,7 @@ body {
 }
 .todo-delete:hover { color: var(--danger); }
 
-/* Empty state */
+/*When to do list is empty*/
 .todo-empty {
   font-size: 13px;
   color: var(--muted);
@@ -363,7 +359,7 @@ body {
   display: none;
 }
 
-/* Footer */
+/*Footer*/
 .todo-footer {
   display: flex;
   justify-content: space-between;
@@ -389,7 +385,7 @@ body {
 }
 .clear-btn:hover { color: var(--danger); }
 
-/* ---------- Responsive ---------- */
+/*Responsive- to work on different device sizes*/
 @media (max-width: 620px) {
   .card--quote,
   .card--todo {
