@@ -4,6 +4,8 @@
    new Date() gives us the current time.
 */
 
+let is24Hour = localStorage.getItem('clockFormat') === '24' ? true : false;
+
 function updateClock() {
   const now = new Date();
 
@@ -12,24 +14,41 @@ function updateClock() {
   let minutes = now.getMinutes();
   let seconds = now.getSeconds();
 
-  //Determine AM or PM
-  const ampm = hours >= 12 ? 'PM' : 'AM';
+  let displayHours = hours;
+  let ampm = '';
 
-  //Convert to 12-hour format
-  hours = hours % 12;
-  if (hours === 0) hours = 12;  // 0 should show as 12
+  if (!is24Hour) {
+    // 12-hour format
+    ampm = hours >= 12 ? 'PM' : 'AM';
+    displayHours = hours % 12;
+    if (displayHours === 0) displayHours = 12;  // 0 should show as 12
+  }
 
   //Pad with a leading zero if needed - to show 09 instead of 9 for example
-  hours   = String(hours).padStart(2, '0');
+  displayHours = String(displayHours).padStart(2, '0');
   minutes = String(minutes).padStart(2, '0');
   seconds = String(seconds).padStart(2, '0');
 
   //Display in the HTML element
-  document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+  document.getElementById('clock').textContent = `${displayHours}:${minutes}:${seconds}`;
   document.getElementById('ampm').textContent  = ampm;
 }
 
+// Toggle format
+document.getElementById('format-toggle').addEventListener('click', function() {
+  is24Hour = !is24Hour;
+  localStorage.setItem('clockFormat', is24Hour ? '24' : '12');
+  updateToggleButton();
+  updateClock(); // Update immediately
+});
+
+function updateToggleButton() {
+  const button = document.getElementById('format-toggle');
+  button.textContent = is24Hour ? 'Switch to 12h' : 'Switch to 24h';
+}
+
 //Run immediately, then repeat every 1000ms (1sec)
+updateToggleButton();
 updateClock();
 setInterval(updateClock, 1000);
 
