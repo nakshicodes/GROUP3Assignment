@@ -1,0 +1,400 @@
+/* =============================================
+   PERSONAL DASHBOARD — style.css
+   Aesthetic: warm dark, editorial, minimal
+   ============================================= */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --bg:        #0f0e0d;
+  --surface:   #1a1917;
+  --surface2:  #222120;
+  --border:    rgba(255,255,255,0.07);
+  --border2:   rgba(255,255,255,0.12);
+  --text:      #f0ece4;
+  --muted:     #8a8680;
+  --accent:    #d4a96a;
+  --accent2:   #7ec8a4;
+  --danger:    #e07070;
+  --radius:    18px;
+  --radius-sm: 10px;
+  --font-head: 'DM Serif Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --transition: 0.2s ease;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Base ---------- */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  min-height: 100vh;
+  padding: 2rem 1.5rem 3rem;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ---------- Background orbs ---------- */
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;
+}
+.orb1 {
+  width: 500px; height: 500px;
+  background: #c47a2a;
+  top: -120px; left: -100px;
+}
+.orb2 {
+  width: 400px; height: 400px;
+  background: #2a7a5a;
+  bottom: -80px; right: -80px;
+}
+
+/* ---------- Header ---------- */
+.header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-title {
+  font-family: var(--font-head);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.date-label {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* ---------- Grid layout ---------- */
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ---------- Card base ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color var(--transition);
+  animation: fadeUp 0.5s ease both;
+}
+.card:hover {
+  border-color: var(--border2);
+}
+
+/* Staggered fade-in for each card */
+.card--clock  { animation-delay: 0.05s; }
+.card--weather{ animation-delay: 0.1s;  }
+.card--quote  { animation-delay: 0.15s; grid-column: span 2; }
+.card--todo   { animation-delay: 0.2s;  grid-column: span 2; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Card label (top tag) ---------- */
+.card-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+/* ---------- CLOCK ---------- */
+.clock {
+  font-family: var(--font-head);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.clock-ampm {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+/* ---------- WEATHER ---------- */
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.weather-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.weather-temp {
+  font-family: var(--font-head);
+  font-size: 2.8rem;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.weather-desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.weather-details {
+  display: flex;
+  gap: 1rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.weather-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detail-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.detail-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ---------- QUOTE ---------- */
+.quote-text {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  line-height: 1.55;
+  color: var(--text);
+  font-weight: 400;
+  font-style: italic;
+  border-left: 2px solid var(--accent);
+  padding-left: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.quote-author {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.refresh-btn {
+  background: transparent;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+.refresh-btn:hover {
+  background: var(--surface2);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- TO-DO ---------- */
+.todo-input-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.todo-input {
+  flex: 1;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 0.6rem 0.9rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+.todo-input::placeholder { color: var(--muted); }
+.todo-input:focus { border-color: var(--accent); }
+
+.add-btn {
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: #1a1208;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
+}
+.add-btn:hover  { opacity: 0.85; }
+.add-btn:active { transform: scale(0.97); }
+
+/* ---------- To-do list items ---------- */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.9rem;
+  transition: opacity var(--transition);
+  animation: fadeUp 0.25s ease both;
+}
+
+.todo-item.done {
+  opacity: 0.45;
+}
+
+.todo-item.done .todo-text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+/* Custom checkbox */
+.todo-check {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--border2);
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: background var(--transition), border-color var(--transition);
+}
+.todo-check:checked {
+  background: var(--accent2);
+  border-color: var(--accent2);
+}
+.todo-check:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px; top: 1px;
+  width: 5px; height: 9px;
+  border: 2px solid #0d1f17;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 14px;
+  color: var(--text);
+  word-break: break-word;
+}
+
+.todo-delete {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0 4px;
+  transition: color var(--transition);
+  flex-shrink: 0;
+}
+.todo-delete:hover { color: var(--danger); }
+
+/* Empty state */
+.todo-empty {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  padding: 0.75rem 0;
+  display: none;
+}
+
+/* Footer */
+.todo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}
+
+.todo-count {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.clear-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 12px;
+  cursor: pointer;
+  transition: color var(--transition);
+  padding: 0;
+}
+.clear-btn:hover { color: var(--danger); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 620px) {
+  .card--quote,
+  .card--todo {
+    grid-column: span 1;
+  }
+  .clock { font-size: 2.8rem; }
+  .site-title { font-size: 1.8rem; }
+}

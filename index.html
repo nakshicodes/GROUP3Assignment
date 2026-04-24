@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Personal Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
+
+  <header class="header">
+    <h1 class="site-title">Dashboard</h1>
+    <span class="date-label" id="date-label"></span>
+  </header>
+
+  <main class="grid">
+
+    <!-- CLOCK WIDGET -->
+    <section class="card card--clock">
+      <p class="card-label">Current time</p>
+      <div class="clock" id="clock">00:00:00</div>
+      <div class="clock-ampm" id="ampm">AM</div>
+    </section>
+
+    <!-- WEATHER WIDGET -->
+    <section class="card card--weather">
+      <p class="card-label">Weather near you</p>
+      <div class="weather-main">
+        <div class="weather-icon" id="weather-icon">⏳</div>
+        <div class="weather-temp" id="weather-temp">--°C</div>
+      </div>
+      <div class="weather-desc" id="weather-desc">Fetching location...</div>
+      <div class="weather-details">
+        <div class="weather-detail">
+          <span class="detail-label">Wind</span>
+          <span class="detail-value" id="wind-speed">--</span>
+        </div>
+        <div class="weather-detail">
+          <span class="detail-label">Humidity</span>
+          <span class="detail-value" id="humidity">--</span>
+        </div>
+        <div class="weather-detail">
+          <span class="detail-label">Feels like</span>
+          <span class="detail-value" id="feels-like">--</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE WIDGET -->
+    <section class="card card--quote">
+      <p class="card-label">Quote of the moment</p>
+      <blockquote class="quote-text" id="quote-text">
+        Loading a quote for you...
+      </blockquote>
+      <p class="quote-author" id="quote-author">—</p>
+      <button class="refresh-btn" id="refresh-quote">New quote</button>
+    </section>
+
+    <!-- TO-DO WIDGET -->
+    <section class="card card--todo">
+      <p class="card-label">To-do list</p>
+      <div class="todo-input-row">
+        <input
+          type="text"
+          id="todo-input"
+          class="todo-input"
+          placeholder="Add a task..."
+          maxlength="80"
+        />
+        <button class="add-btn" id="add-btn">Add</button>
+      </div>
+      <ul class="todo-list" id="todo-list"></ul>
+      <p class="todo-empty" id="todo-empty">No tasks yet. Add one above!</p>
+      <div class="todo-footer">
+        <span class="todo-count" id="todo-count">0 tasks</span>
+        <button class="clear-btn" id="clear-done">Clear done</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
