@@ -5,21 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Personal Dashboard</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!--fonts-->
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  
+  <!--Google Material Icons for icons-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 </head>
 <body>
 
+  <!--Styling for the background-->
   <div class="bg-orb orb1"></div>
   <div class="bg-orb orb2"></div>
 
+  <!--Header section with current date and title-->
   <header class="header">
-    <h1 class="site-title">Dashboard</h1>
+    <h1 class="site-title">Personal Dashboard</h1>
     <span class="date-label" id="date-label"></span>
   </header>
 
+  <!--main content-->
   <main class="grid">
 
-    <!-- CLOCK WIDGET -->
+    <!--CLOCK WIDGET-->
     <section class="card card--clock">
       <p class="card-label">Current time</p>
       <div class="clock" id="clock">00:00:00</div>
@@ -28,29 +36,38 @@
 
     <!-- WEATHER WIDGET -->
     <section class="card card--weather">
+
       <p class="card-label">Weather near you</p>
+
       <div class="weather-main">
-        <div class="weather-icon" id="weather-icon">⏳</div>
+        <!-- Icon name is swapped out by script.js depending on the weather code -->
+        <span class="material-icons weather-icon" id="weather-icon">hourglass_empty</span>
         <div class="weather-temp" id="weather-temp">--°C</div>
       </div>
+
       <div class="weather-desc" id="weather-desc">Fetching location...</div>
+
       <div class="weather-details">
+
         <div class="weather-detail">
           <span class="detail-label">Wind</span>
           <span class="detail-value" id="wind-speed">--</span>
         </div>
+
         <div class="weather-detail">
           <span class="detail-label">Humidity</span>
           <span class="detail-value" id="humidity">--</span>
         </div>
+
         <div class="weather-detail">
           <span class="detail-label">Feels like</span>
           <span class="detail-value" id="feels-like">--</span>
         </div>
+
       </div>
     </section>
 
-    <!-- QUOTE WIDGET -->
+    <!--QUOTE WIDGET- this could take some time to refresh the quote. I'd advise exercising patience with it-->
     <section class="card card--quote">
       <p class="card-label">Quote of the moment</p>
       <blockquote class="quote-text" id="quote-text">
@@ -60,9 +77,10 @@
       <button class="refresh-btn" id="refresh-quote">New quote</button>
     </section>
 
-    <!-- TO-DO WIDGET -->
+    <!--TO-DO WIDGET-->
     <section class="card card--todo">
       <p class="card-label">To-do list</p>
+
       <div class="todo-input-row">
         <input
           type="text"
@@ -73,16 +91,20 @@
         />
         <button class="add-btn" id="add-btn">Add</button>
       </div>
+
       <ul class="todo-list" id="todo-list"></ul>
       <p class="todo-empty" id="todo-empty">No tasks yet. Add one above!</p>
+
       <div class="todo-footer">
         <span class="todo-count" id="todo-count">0 tasks</span>
         <button class="clear-btn" id="clear-done">Clear done</button>
       </div>
+
     </section>
 
   </main>
 
+  <!--Linking js file-->
   <script src="script.js"></script>
 </body>
 </html>
