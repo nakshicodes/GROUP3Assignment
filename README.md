@@ -1,4 +1,4 @@
-# Personal Dashboard — Assignment Notes
+# Personal Dashboard — GROUP 3 Assignment Notes
 
 ## Files in this project
 
@@ -26,10 +26,12 @@ No extra libraries or frameworks needed. Pure HTML, CSS, and JavaScript.
 - `fetch(url).then(r => r.json())` makes the HTTP request and converts the response to a JS object
 - **No API key required** — Open-Meteo is completely free
 
-### 3. Random Quote — Fetch API + Quotable
-- `fetch("https://api.quotable.io/random")` calls the Quotable API
-- The response includes `data.content` (the quote) and `data.author`
-- A fallback array is used if the API is offline
+### 3. Random Quote — Fetch API + ZenQuotes
+- `fetch()` calls the ZenQuotes API via a free CORS proxy (allorigins.win)
+- ZenQuotes was chosen instead because Quotable (api.quotable.io) our first choice has been shut down
+- A CORS proxy is needed because ZenQuotes blocks direct browser requests — the proxy acts as a middleman
+- The response is `[ { "q": "quote text", "a": "Author" } ]` — we read index `[0]`
+- A fallback array is used if the API or proxy is offline
 
 ### 4. To-Do List — localStorage
 - Todos are stored as a JS array of objects: `[{ text: "...", done: false }]`
@@ -51,5 +53,6 @@ Just open `index.html` in any web browser. No server needed.
 | API | URL | Key required? |
 |-----|-----|---------------|
 | Open-Meteo (weather) | https://open-meteo.com | No |
-| Quotable (quotes) | https://api.quotable.io | No |
-| Google Fonts | https://fonts.google.com | No |
+| ZenQuotes (quotes) | https://zenquotes.io | No |
+| allorigins.win (CORS proxy for ZenQuotes) | https://allorigins.win | No |
+| Google Fonts + Material Icons | https://fonts.google.com | No |
