@@ -40,6 +40,11 @@ document.getElementById('format-toggle').addEventListener('click', function() {
   localStorage.setItem('clockFormat', is24Hour ? '24' : '12');
   updateToggleButton();
   updateClock(); // Update immediately
+  
+  // Add smooth animation
+  const button = document.getElementById('format-toggle');
+  button.classList.add('animate');
+  setTimeout(() => button.classList.remove('animate'), 300);
 });
 
 function updateToggleButton() {

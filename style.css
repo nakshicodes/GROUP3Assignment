@@ -163,6 +163,16 @@ body {
   background: var(--accent2);
 }
 
+.format-toggle.animate {
+  animation: buttonMove 0.3s ease;
+}
+
+@keyframes buttonMove {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
 /*WEATHER*/
 .weather-main {
   display: flex;
