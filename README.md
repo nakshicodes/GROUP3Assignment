@@ -49,6 +49,13 @@ Just open `index.html` in any web browser. No server needed.
 
 ---
 
+## Contributors
+
+Add your name below when you contribute to this project!
+
+- Natasha (Initial setup and documentation)
+- Kirui (Implemented web icon and 12/24 hour toggle)
+
 ## APIs used
 | API | URL | Key required? |
 |-----|-----|---------------|
