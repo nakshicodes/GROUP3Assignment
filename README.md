@@ -1,4 +1,4 @@
-# Personal Dashboard — GROUP 3 Assignment Notes
+# Personal Dashboard — GROUP 3 Assignment Project
 
 ## Files in this project
 
